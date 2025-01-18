@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://dawwn8wasnvig"]
+[gd_scene load_steps=10 format=3 uid="uid://dawwn8wasnvig"]
 
 [ext_resource type="Script" path="res://Scenes/Levels/LevelController.gd" id="1_pr5qv"]
 [ext_resource type="Texture2D" uid="uid://dfa1qj6dmf553" path="res://Assets/Environment/World/middle.png" id="2_hbybp"]
 [ext_resource type="Texture2D" uid="uid://b6mn5wx55cjvc" path="res://Assets/Environment/World/back.png" id="3_bn1ge"]
 [ext_resource type="Texture2D" uid="uid://ttr2iy482546" path="res://Assets/Environment/World/tileset.png" id="3_by2q6"]
+[ext_resource type="PackedScene" uid="uid://lcahvdybnu87" path="res://Scenes/Enemies/possum.tscn" id="6_j1bds"]
 [ext_resource type="PackedScene" uid="uid://b8uqbujw35rjs" path="res://Scenes/Collectibles/coin.tscn" id="6_uir8h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e8ged"]
@@ -438,9 +439,8 @@ sources/0 = SubResource("TileSetAtlasSource_e8ged")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l0r7q"]
 size = Vector2(130, 442)
 
-[node name="Main" type="Node2D" node_paths=PackedStringArray("player")]
+[node name="Main" type="Node2D"]
 script = ExtResource("1_pr5qv")
-player = NodePath("")
 
 [node name="Bg" type="ParallaxBackground" parent="."]
 follow_viewport_scale = 0.5
@@ -528,3 +528,6 @@ position = Vector2(448, 280)
 
 [node name="Coin3" parent="." instance=ExtResource("6_uir8h")]
 position = Vector2(496, 280)
+
+[node name="Possum" parent="." instance=ExtResource("6_j1bds")]
+position = Vector2(332, 324)

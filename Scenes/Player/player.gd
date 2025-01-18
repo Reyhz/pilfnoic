@@ -6,6 +6,7 @@ const JUMP_VELOCITY = -400.0
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var lastDir = true
 
 func _ready():
 	pass
@@ -25,10 +26,12 @@ func _physics_process(delta):
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
-	if direction < 0:
+	if direction < 0 or (lastDir && direction == 0):
 		$AnimatedSprite2D.flip_h = true
+		lastDir = true
 	else:
 		$AnimatedSprite2D.flip_h = false
+		lastDir = false
 	
 	if direction:
 		velocity.x = direction * SPEED
@@ -44,7 +47,7 @@ func _physics_process(delta):
 
 # TODO: Show a little text if the player did head or tails to give feedback
 func heads_or_tails(collectible):
-	return collectible.heads if randi_range(0,1) == 0 else collectible.tails
+	return collectible.heads if PlayerStats.coinflip() == true else collectible.tails
 
 
 func _on_area_2d_area_entered(area):
