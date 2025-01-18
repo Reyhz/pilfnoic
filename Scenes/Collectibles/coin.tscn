@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://b8uqbujw35rjs"]
+
+[ext_resource type="Texture2D" uid="uid://cmuj7f7igkb20" path="res://Assets/VFX/Spinning Coin.png" id="1_3rw8m"]
+[ext_resource type="Script" path="res://Scenes/Collectibles/collectible.gd" id="2_nidxm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a76q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vwwh"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j72e2"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x81sc"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf8mm"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r300n"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ab2c"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bwpq"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5khg"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4hrn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vwwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j72e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x81sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf8mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r300n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ab2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bwpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5khg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="Coin" type="Area2D" groups=["collectible"]]
+script = ExtResource("2_nidxm")
+
+[node name="coin" type="Node" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5a76q")
+
+[node name="Area2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d4hrn")
+autoplay = "default"
