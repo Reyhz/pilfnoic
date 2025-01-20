@@ -1,0 +1,128 @@
+[gd_scene load_steps=21 format=3 uid="uid://b8uqbujw35rjs"]
+
+[ext_resource type="Texture2D" uid="uid://cmuj7f7igkb20" path="res://Assets/VFX/Spinning Coin.png" id="1_3rw8m"]
+[ext_resource type="Script" path="res://Scenes/Collectibles/collectible.gd" id="2_nidxm"]
+[ext_resource type="Texture2D" uid="uid://c4rq2ojo0tm25" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame1.png" id="3_8pn4l"]
+[ext_resource type="Texture2D" uid="uid://ra8egir8ge01" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame2.png" id="4_awh60"]
+[ext_resource type="Texture2D" uid="uid://cep5575p1vnu5" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame3.png" id="5_sxoyp"]
+[ext_resource type="Texture2D" uid="uid://c8bxdhw3oquou" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame4.png" id="6_5mckr"]
+[ext_resource type="Texture2D" uid="uid://d1dtviihjsqt" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame5.png" id="7_4euhv"]
+[ext_resource type="Texture2D" uid="uid://dlcu5fujokjtw" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame6.png" id="8_eare8"]
+[ext_resource type="Texture2D" uid="uid://chdu3s6c6o1cq" path="res://Assets/VFX/Coin Flip (animation frames)/goldcoin-frame1-tails.png" id="9_kmemt"]
+[ext_resource type="FontFile" uid="uid://y6cilxnhb1mc" path="res://Assets/Other/Pixellari.ttf" id="10_us185"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5a76q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5vwwh"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j72e2"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x81sc"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sf8mm"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r300n"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ab2c"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3bwpq"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m5khg"]
+atlas = ExtResource("1_3rw8m")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d4hrn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5vwwh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j72e2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x81sc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sf8mm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r300n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ab2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3bwpq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m5khg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8pn4l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_awh60")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_sxoyp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_5mckr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_4euhv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_eare8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_kmemt")
+}],
+"loop": false,
+"name": &"flip",
+"speed": 20.0
+}]
+
+[node name="Coin" type="Area2D" groups=["collectible"]]
+script = ExtResource("2_nidxm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5a76q")
+
+[node name="AnimationSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_d4hrn")
+autoplay = "default"
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -32.0
+offset_right = 43.0
+offset_bottom = -16.0
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("10_us185")
+text = "HEADS !"
+horizontal_alignment = 1
+vertical_alignment = 1

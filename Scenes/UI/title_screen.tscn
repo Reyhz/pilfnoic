@@ -1,0 +1,265 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy2mr87dit4j3"]
+
+[ext_resource type="Texture2D" uid="uid://b6mn5wx55cjvc" path="res://Assets/Environment/World/back.png" id="1_k1ath"]
+[ext_resource type="Script" path="res://Scenes/UI/title_screen.gd" id="1_q6u3s"]
+[ext_resource type="FontFile" uid="uid://y6cilxnhb1mc" path="res://Assets/Other/Pixellari.ttf" id="2_np4b2"]
+[ext_resource type="Texture2D" uid="uid://dfa1qj6dmf553" path="res://Assets/Environment/World/middle.png" id="2_y01aj"]
+
+[sub_resource type="Gradient" id="Gradient_d6lq7"]
+offsets = PackedFloat32Array(0.150602, 0.343374, 0.60241, 0.819277, 0.89759)
+colors = PackedColorArray(1, 1, 1, 1, 0.835294, 0.835294, 0.835294, 0, 0, 0, 0, 0, 0.62, 0.3627, 0.1054, 1, 0.26, 0.1521, 0.0442, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvhs4"]
+gradient = SubResource("Gradient_d6lq7")
+
+[node name="TitleScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q6u3s")
+
+[node name="Title" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.378
+anchor_top = 0.173
+anchor_right = 0.625
+anchor_bottom = 0.259
+offset_left = 0.543976
+offset_top = -0.104004
+offset_right = -244.0
+offset_bottom = -15.832
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Title"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "PILFNOIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "PILFNOIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Title/Label2"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = -8.0
+offset_right = 460.0
+offset_bottom = 504.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+
+[node name="Version" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.938757
+anchor_top = 0.981716
+anchor_right = 1.01476
+anchor_bottom = 1.00472
+offset_left = -0.447998
+offset_top = -0.152039
+offset_right = -48.0
+offset_bottom = 24.9441
+scale = Vector2(0.2, 0.2)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Version"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "ALPHA_v0.1"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Version"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "ALPHA_v0.1
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Version/Label2"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = -8.0
+offset_right = 460.0
+offset_bottom = 504.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+
+[node name="StartText" type="Control" parent="."]
+layout_mode = 1
+anchor_left = 0.28
+anchor_top = 0.694
+anchor_right = 0.724
+anchor_bottom = 0.842
+offset_left = -0.0599976
+offset_top = 0.287994
+offset_right = -471.548
+offset_bottom = -55.616
+scale = Vector2(0.75, 0.75)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="StartText"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "PRESS SPACE TO PLAY
+ESC TO QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="StartText"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_np4b2")
+theme_override_font_sizes/font_size = 64
+text = "PRESS SPACE TO PLAY
+ESC TO QUIT"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="StartText/Label2"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = -8.0
+offset_right = 890.0
+offset_bottom = 896.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="StartText/Label2"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = 60.0001
+offset_right = 890.0
+offset_bottom = 964.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="StartText"]
+wait_time = 0.65
+autostart = true
+
+[node name="Bg" type="ParallaxBackground" parent="."]
+follow_viewport_scale = 0.5
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Bg"]
+position = Vector2(0, -184)
+motion_scale = Vector2(0.01, 0.01)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bg/ParallaxLayer"]
+position = Vector2(0, 152)
+scale = Vector2(3, 3)
+texture = ExtResource("1_k1ath")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="Bg"]
+position = Vector2(0, 8)
+motion_scale = Vector2(0.04, 0.04)
+motion_mirroring = Vector2(1232, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(0, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(176, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(352, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(528, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D5" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(704, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D6" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(880, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D7" type="Sprite2D" parent="Bg/ParallaxLayer2"]
+position = Vector2(1056, 388)
+texture = ExtResource("2_y01aj")
+centered = false
+metadata/_edit_lock_ = true
+
+[connection signal="timeout" from="StartText/Timer" to="." method="_on_timer_timeout"]

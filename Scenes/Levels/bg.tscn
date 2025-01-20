@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bpcw16xwnp2k6"]
+
+[ext_resource type="Texture2D" uid="uid://b6mn5wx55cjvc" path="res://Assets/Environment/World/back.png" id="1_6bfcr"]
+[ext_resource type="Texture2D" uid="uid://dfa1qj6dmf553" path="res://Assets/Environment/World/middle.png" id="2_ramit"]
+
+[node name="BG" type="ParallaxBackground"]
+
+[node name="Back" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.5, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Back"]
+scale = Vector2(3, 3)
+texture = ExtResource("1_6bfcr")
+centered = false
+
+[node name="Front" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0.3, 1)
+motion_mirroring = Vector2(1232, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Front"]
+position = Vector2(0, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D2" type="Sprite2D" parent="Front"]
+position = Vector2(176, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D3" type="Sprite2D" parent="Front"]
+position = Vector2(352, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D4" type="Sprite2D" parent="Front"]
+position = Vector2(528, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D5" type="Sprite2D" parent="Front"]
+position = Vector2(704, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D6" type="Sprite2D" parent="Front"]
+position = Vector2(880, 424)
+texture = ExtResource("2_ramit")
+centered = false
+
+[node name="Sprite2D7" type="Sprite2D" parent="Front"]
+position = Vector2(1056, 424)
+texture = ExtResource("2_ramit")
+centered = false

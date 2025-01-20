@@ -1,0 +1,251 @@
+[gd_scene load_steps=18 format=3 uid="uid://jhi56d852nye"]
+
+[ext_resource type="Texture2D" uid="uid://cmuj7f7igkb20" path="res://Assets/VFX/Spinning Coin.png" id="1_jp8f7"]
+[ext_resource type="Script" path="res://Scenes/UI/hud.gd" id="1_sf83s"]
+[ext_resource type="FontFile" uid="uid://y6cilxnhb1mc" path="res://Assets/Other/Pixellari.ttf" id="2_eaw0c"]
+[ext_resource type="Texture2D" uid="uid://bbfqij7pr4cr2" path="res://Assets/VFX/hearts.png" id="4_i4erp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uden"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gsoxr"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbjq4"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7ix0"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjppb"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgpw7"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqamq"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mrn7t"]
+atlas = ExtResource("1_jp8f7")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k57yn"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uden")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gsoxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbjq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7ix0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjppb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tgpw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqamq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mrn7t")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bnrja"]
+atlas = ExtResource("4_i4erp")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ntmq"]
+atlas = ExtResource("4_i4erp")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_x60nn"]
+offsets = PackedFloat32Array(0.150602, 0.343374, 0.60241, 0.819277, 0.89759)
+colors = PackedColorArray(1, 1, 1, 1, 0.835294, 0.835294, 0.835294, 0, 0, 0, 0, 0, 0.62, 0.3627, 0.1054, 1, 0.26, 0.1521, 0.0442, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_nmcri"]
+gradient = SubResource("Gradient_x60nn")
+
+[node name="HUD" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_sf83s")
+
+[node name="CoinSprite" type="Control" parent="."]
+process_mode = 1
+layout_mode = 3
+anchor_left = 0.021
+anchor_top = 0.037
+anchor_right = 0.16
+anchor_bottom = 0.074
+offset_left = -0.192001
+offset_top = 0.0240002
+offset_right = -120.32
+offset_bottom = 16.048
+scale = Vector2(1.5, 1.5)
+
+[node name="Sprite" type="AnimatedSprite2D" parent="CoinSprite"]
+sprite_frames = SubResource("SpriteFrames_k57yn")
+autoplay = "default"
+frame_progress = 0.427056
+centered = false
+
+[node name="CoinAmount" type="Label" parent="CoinSprite"]
+layout_mode = 0
+offset_left = 21.3333
+offset_right = 105.333
+offset_bottom = 23.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_eaw0c")
+text = "0123456789"
+
+[node name="HeartSprite" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 208.0
+offset_top = 20.0
+offset_right = 248.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+
+[node name="Empty" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(0, 8)
+texture = SubResource("AtlasTexture_bnrja")
+
+[node name="Empty2" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(16, 8)
+texture = SubResource("AtlasTexture_bnrja")
+
+[node name="Empty3" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(32, 8)
+texture = SubResource("AtlasTexture_bnrja")
+
+[node name="Full1" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(0, 8)
+texture = SubResource("AtlasTexture_3ntmq")
+
+[node name="Full2" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(16, 8)
+texture = SubResource("AtlasTexture_3ntmq")
+
+[node name="Full3" type="Sprite2D" parent="HeartSprite"]
+position = Vector2(32, 8)
+texture = SubResource("AtlasTexture_3ntmq")
+
+[node name="Pause" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Pause"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.14, 0.14, 0.14, 0.47451)
+
+[node name="StartText" type="Control" parent="Pause"]
+layout_mode = 1
+anchor_left = 0.378
+anchor_top = -0.262185
+anchor_right = 0.625
+anchor_bottom = -0.176185
+offset_left = -157.956
+offset_top = 369.396
+offset_right = -402.5
+offset_bottom = 353.668
+scale = Vector2(0.75, 0.75)
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Pause/StartText"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_eaw0c")
+theme_override_font_sizes/font_size = 64
+text = "PRESS SPACE TO RESUME
+
+
+
+ESC TO GO TO MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Label2" type="Label" parent="Pause/StartText"]
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_eaw0c")
+theme_override_font_sizes/font_size = 64
+text = "PRESS SPACE TO RESUME
+
+
+
+ESC TO GO TO MAIN MENU"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect" type="TextureRect" parent="Pause/StartText/Label2"]
+layout_mode = 0
+offset_left = 826.0
+offset_top = -8.0
+offset_right = 890.0
+offset_bottom = 896.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_nmcri")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="TextureRect2" type="TextureRect" parent="Pause/StartText/Label2"]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.602409
+anchor_bottom = 0.602409
+offset_left = 826.0
+offset_top = 60.0001
+offset_right = 890.0
+offset_bottom = 964.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_nmcri")
+expand_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Timer" type="Timer" parent="Pause/StartText"]
+wait_time = 0.65
+autostart = true
