@@ -19,13 +19,14 @@ func get_coins():
 
 func set_coins(amount):
 	coins = amount
+	coins = maxi(0, coins)
 
 # Return a boolean, Heads = true / Tails = false
 func coinflip():
 	coinflips += 1
 	var face = false
 	
-	if randi_range(0,1) == 1:
+	if randi_range(0,100) + coins > 50:
 		face = true
 		heads += 1
 	else: 

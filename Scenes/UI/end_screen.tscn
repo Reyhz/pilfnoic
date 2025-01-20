@@ -1,0 +1,151 @@
+[gd_scene load_steps=6 format=3 uid="uid://02vybifgube5"]
+
+[ext_resource type="PackedScene" uid="uid://dy2mr87dit4j3" path="res://Scenes/UI/title_screen.tscn" id="1_ej65e"]
+[ext_resource type="FontFile" uid="uid://y6cilxnhb1mc" path="res://Assets/Other/Pixellari.ttf" id="2_1y010"]
+[ext_resource type="Script" path="res://Scenes/UI/end_screen.gd" id="2_7ws5q"]
+
+[sub_resource type="Gradient" id="Gradient_d6lq7"]
+offsets = PackedFloat32Array(0.150602, 0.343374, 0.60241, 0.819277, 0.89759)
+colors = PackedColorArray(1, 1, 1, 1, 0.835294, 0.835294, 0.835294, 0, 0, 0, 0, 0, 0.62, 0.3627, 0.1054, 1, 0.26, 0.1521, 0.0442, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_rvhs4"]
+gradient = SubResource("Gradient_d6lq7")
+
+[node name="TitleScreen" instance=ExtResource("1_ej65e")]
+script = ExtResource("2_7ws5q")
+
+[node name="Label" parent="Title" index="0"]
+offset_left = -424.0
+offset_right = 700.0
+theme_override_font_sizes/font_size = 56
+text = "THANK YOU FOR PLAYING THIS DEMO
+"
+
+[node name="Label2" parent="Title" index="1"]
+visible = false
+
+[node name="Title2" type="Control" parent="." index="1"]
+layout_mode = 1
+anchor_left = 0.378
+anchor_top = 0.173
+anchor_right = 0.625
+anchor_bottom = 0.259
+offset_left = 0.543976
+offset_top = -0.104004
+offset_right = -244.0
+offset_bottom = -15.832
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Title2" index="0"]
+clip_children = 2
+layout_mode = 0
+offset_left = -424.0
+offset_top = 118.0
+offset_right = 700.0
+offset_bottom = 395.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_1y010")
+theme_override_font_sizes/font_size = 32
+text = "SORRY, THERE IS ONLY TWO LEVELS FOR NOW
+
+BUT I PLAN TO CONTINUE DEVELOPPING THIS PROJECT FOR SOME TIME !
+I THINK THE IDEA CAN BE FUN WITH MORE POLISHING
+
+CREDITS :
+ART - Sunny Land by Ansimuz
+FONT - Pixellari by Zacchary Dempsey-Plante"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title2" index="1"]
+visible = false
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_1y010")
+theme_override_font_sizes/font_size = 64
+text = "PILFNOIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Title2/Label2" index="0"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = -8.0
+offset_right = 460.0
+offset_bottom = 504.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+
+[node name="Title3" type="Control" parent="." index="2"]
+layout_mode = 1
+anchor_left = 0.378
+anchor_top = 0.173
+anchor_right = 0.625
+anchor_bottom = 0.259
+offset_left = 0.543976
+offset_top = -0.104004
+offset_right = -244.0
+offset_bottom = -15.832
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="Title3" index="0"]
+clip_children = 2
+layout_mode = 0
+offset_left = -424.0
+offset_top = 380.0
+offset_right = 700.0
+offset_bottom = 581.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/outline_size = 12
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("2_1y010")
+theme_override_font_sizes/font_size = 32
+text = "PRESS SPACE TO GO TO TITLE SCREEN"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="Title3" index="1"]
+visible = false
+clip_children = 2
+layout_mode = 0
+offset_right = 280.0
+offset_bottom = 64.0
+theme_override_colors/font_color = Color(0.968627, 0.572549, 0.168627, 1)
+theme_override_fonts/font = ExtResource("2_1y010")
+theme_override_font_sizes/font_size = 64
+text = "PILFNOIC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Title3/Label2" index="0"]
+layout_mode = 0
+offset_left = 396.0
+offset_top = -8.0
+offset_right = 460.0
+offset_bottom = 504.0
+rotation = 1.57116
+texture = SubResource("GradientTexture1D_rvhs4")
+expand_mode = 1
+
+[node name="Version" parent="." index="3"]
+visible = false
+
+[node name="StartText" parent="." index="4"]
+visible = false
+
+[node name="Timer" parent="StartText" index="2"]
+autostart = false

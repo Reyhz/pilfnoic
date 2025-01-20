@@ -3,13 +3,28 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const AIR_JUMP = 0.200 # Time where the player can still jump ( in ms )
+
+var camera = null
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var lastDir = true
+var health = 3
+var damaged = false
+var grounded = 0
+
+signal hit(healthLeft)
 
 func _ready():
-	pass
+	camera = $Camera
+
+
+func _process(delta):
+	if not is_on_floor():
+		grounded -= delta
+	else:
+		grounded = AIR_JUMP
 
 
 func _physics_process(delta):
@@ -18,11 +33,12 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 		if velocity.y > 0:
 			$Animator.play("fall")
+		else:
+			$Animator.play("jump")
 	
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and (is_on_floor() or grounded > 0):
 		velocity.y = JUMP_VELOCITY
-		$Animator.play("jump")
 	
 	# Get the input direction and handle the movement/deceleration.
 	var direction = Input.get_axis("left", "right")
@@ -43,17 +59,44 @@ func _physics_process(delta):
 			$Animator.play("idle")
 	
 	move_and_slide()
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		if collision.get_collider().is_in_group("enemy"):
+			damage()
 
 
-# TODO: Show a little text if the player did head or tails to give feedback
-func heads_or_tails(collectible):
-	return collectible.heads if PlayerStats.coinflip() == true else collectible.tails
+func damage():
+	if not damaged:
+		health -= 1
+		hit.emit(health)
+		damaged = true
+		set_collision_layer_value(1, false)
+		set_collision_mask_value(2, false)
+		blink()
+		$IFrame.start()
+		print_debug(health)
+	if health <= 0:
+		game_over()
+
+
+func game_over():
+	get_tree().change_scene_to_file("res://Scenes/UI/title_screen.tscn")
+
+
+func blink():
+	while damaged:
+		$AnimatedSprite2D.visible = not $AnimatedSprite2D.visible
+		await get_tree().create_timer(0.1).timeout
+	if not $AnimatedSprite2D.visible:
+		$AnimatedSprite2D.visible = true
+	set_collision_layer_value(1, true)
+	set_collision_mask_value(2, true)
 
 
 func _on_area_2d_area_entered(area):
 	if area.is_in_group("collectible"):
-		match area.type:
-			"coin":
-				PlayerStats.coins += heads_or_tails(area)
-				print_debug(PlayerStats.coins)
-				area.queue_free()
+		area.delete()
+
+
+func _on_i_frame_timeout():
+	damaged = false

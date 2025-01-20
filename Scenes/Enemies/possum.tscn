@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://lcahvdybnu87"]
+[gd_scene load_steps=18 format=3 uid="uid://lcahvdybnu87"]
 
 [ext_resource type="Script" path="res://Scenes/Enemies/possum_AI.gd" id="1_0y58w"]
 [ext_resource type="Texture2D" uid="uid://cy4dpu1q13rmr" path="res://Assets/Enemies/possum spritesheet.png" id="1_vlhuc"]
 [ext_resource type="Texture2D" uid="uid://hooj20ita0kp" path="res://Assets/VFX/enemydeath.png" id="2_eh80y"]
+[ext_resource type="FontFile" uid="uid://y6cilxnhb1mc" path="res://Assets/Other/Pixellari.ttf" id="4_brvtt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrmn3"]
 atlas = ExtResource("2_eh80y")
@@ -94,18 +95,21 @@ height = 25.1852
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2dop4"]
 size = Vector2(25, 16)
 
-[node name="Possum" type="CharacterBody2D"]
+[node name="Possum" type="CharacterBody2D" groups=["enemy"]]
 scale = Vector2(1.35, 1.35)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_0y58w")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6j6pn")
 autoplay = "default"
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["enemy_hbox"]]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(-0.740741, -2.22222)
+position = Vector2(-0.740741, -5.18518)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uf710")
 
@@ -114,7 +118,26 @@ position = Vector2(-0.740741, 5.92593)
 shape = SubResource("RectangleShape2D_2dop4")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(-28, 0)
-target_position = Vector2(0, 25)
+position = Vector2(-20.7407, -0.740741)
+collision_mask = 4
+
+[node name="RayCastFront" type="RayCast2D" parent="."]
+position = Vector2(-13.3333, 10.3704)
+target_position = Vector2(-1, 0)
+collision_mask = 4
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -16.0
+offset_top = -25.9259
+offset_right = 43.0
+offset_bottom = -9.92593
+scale = Vector2(0.5, 0.5)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("4_brvtt")
+text = "HEADS !"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
